@@ -8,7 +8,7 @@ let icons = document.querySelector('.icons');
 let sub_linkS = document.querySelector('.sub_links');
 let sub_links_event = document.querySelector('#sub_links_event');
 let sub_links_vol = document.querySelector('#sub_links_vol');
-
+let booking_contacts = document.querySelector("#book_cont");
 var currentSub = -1;
 
 function keskece(n) {
@@ -141,8 +141,7 @@ function showLinks(n) {
             sub_links_vol.classList.add('hide');
 
 
-            sub_links_about.classList.add('hide');
-            sub_links_about.classList.remove('display');
+
 
 
             break;
@@ -164,8 +163,7 @@ function showLinks(n) {
             sub_links_vol.classList.add('display');
 
 
-            sub_links_about.classList.add('hide');
-            sub_links_about.classList.remove('display');
+
 
             break;
 
@@ -186,8 +184,7 @@ function showLinks(n) {
             sub_links_vol.classList.add('hide');
 
 
-            sub_links_about.classList.add('display');
-            sub_links_about.classList.remove('hide');
+
 
             break;
 
@@ -196,7 +193,7 @@ function showLinks(n) {
             if (currentSub == n) {
                 sub_links_contact.classList.add('fadeIn');
             } else {
-                sub_links_about.classList.remove('fadeOut');
+
                 sub_links_vol.classList.remove('fadeOut');
                 sub_links_event.classList.remove('fadeOut');
                 reStartFadeIn(n);
@@ -213,8 +210,7 @@ function showLinks(n) {
             sub_links_vol.classList.add('hide');
 
 
-            sub_links_about.classList.add('hide');
-            sub_links_about.classList.remove('display');
+
 
             break;
 
@@ -253,6 +249,7 @@ function buildMenu(data) {
             console.log("venues")
             vennueList.push(item);
         }
+
     });
     musicList.forEach(item=>{
         let a = document.createElement("a");

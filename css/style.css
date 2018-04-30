@@ -149,13 +149,13 @@ body {
 .sub_links {
     position: absolute;
     left: 40%;
-    top: 30%;
+    top: 10%;
 
 
 }
 
 .sub_links a {
-    padding: 1vw;
+    padding: 5px;
 }
 
 #main_links a {
@@ -170,6 +170,9 @@ body {
     top: 30%;
     margin-left: 1vw;
     margin-top: 5vw;
+}
+#book_cont{
+    margin-top: 35vh;
 }
 .cat{
     display: block;
@@ -244,6 +247,21 @@ h1.pagetitle {
     grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
     grid-template-rows: repeat(auto-fill, 200px), fit-content(100%);
 
+}
+
+#venueList h1{
+    border-bottom: solid white 2px;
+    width: 60vw;
+}
+.venuePost{
+    margin-bottom: 60px;
+}
+#contactList h1{
+    border-bottom: solid white 2px;
+    width: 60vw;
+}
+.contactPost{
+    margin-bottom: 60px;
 }
 
 
