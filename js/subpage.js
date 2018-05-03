@@ -4,7 +4,7 @@ let id = urlParams.get("id");
 console.log("i want to get article: " + id);
 
 
-fetch("http://huset.albertopachecommd.com/wp-json/wp/v2/events/"+id)
+fetch("http://huset.albertopachecommd.com/wp-json/wp/v2/events/"+id+"?_embed")
   .then(e=>e.json())
   .then(showSinglePost)
 

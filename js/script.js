@@ -34,14 +34,20 @@ function showSingleEvent(anEvent) {
     //clone.querySelector(".descript").innerHTML = anEvent.content.rendered;
 
     let priceTag = anEvent.acf.price;
-    if(priceTag==0){
+    if (priceTag == 0) {
         clone.querySelector(".price").textContent = "FREE";
-    }
-    else{
+    } else {
         clone.querySelector(".price").textContent = priceTag + " kr";
     }
 
     clone.querySelector(".genre").textContent = anEvent.acf.genre;
+
+    var dateString = anEvent.acf.date;
+    var year = dateString.substring(0, 4);
+    var month = dateString.substring(4, 6);
+    var day = dateString.substring(6, 8);
+
+    clone.querySelector(".date").textContent = year + "-" + month + "-" + day;
     clone.querySelector(".location").textContent = anEvent.acf.location;
     if (anEvent._embedded["wp:featuredmedia"]) { //img is there
         clone.querySelector("img").setAttribute("src", anEvent._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url)
@@ -57,19 +63,19 @@ function showSingleEvent(anEvent) {
 
 fetchEvents();
 
-setInterval(function(){
+setInterval(function () {
 
-  if(bottomVisible() && lookingForData===false){
-    console.log("We've reached rock bottom, fetching articles")
-    page++;
-    fetchEvents();
-  }
-}, 1000)
+    if (bottomVisible() && lookingForData === false) {
+        console.log("fetch more")
+        page++;
+        fetchEvents();
+    }
+}, 100);
 
 function bottomVisible() {
-  const scrollY = window.scrollY
-  const visible = document.documentElement.clientHeight
-  const pageHeight = document.documentElement.scrollHeight
-  const bottomOfPage = visible + scrollY >= pageHeight
-  return bottomOfPage || pageHeight < visible
+    const scrollY = window.scrollY
+    const visible = document.documentElement.clientHeight
+    const pageHeight = document.documentElement.scrollHeight
+    const bottomOfPage = visible + scrollY >= pageHeight
+    return bottomOfPage || pageHeight < visible
 }

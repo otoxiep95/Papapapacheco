@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,600');
-
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 html,
 body {
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
@@ -17,19 +18,20 @@ body {
 }
 
 .navbar {
-    height: auto;
-    width:15vw;
+    height: 100vh;
+    width: 15vw;
     background-color: none;
     transition: all ease 1s;
     position: fixed;
-/*    z-index:-5;*/
+    /*    z-index:-5;*/
 }
 
 .content {
     width: 85vw;
-    height: 100vh;
-    float:right;
+    height: auto;
+    float: right;
     transition: all ease 1s;
+    padding: 2vw 10vw 5vw 10vw;
 }
 
 .icons {
@@ -41,11 +43,9 @@ body {
     left: 0%;
 }
 
-
-
 .sub_menu {
     height: 100vh;
-    width:15vw;
+    width: 15vw;
     background-color: black;
     z-index: -5;
     position: absolute;
@@ -54,17 +54,22 @@ body {
     transition: all ease 1s;
 }
 
-.wrapper-menu {
-    position: absolute;
-    left: 4%;
-    top: 15%;
-    z-index: 10;
+.icon {
+    width: 5vw;
+    height: auto;
 }
 
 #logo_menu {
-    width:28vw;
-    margin-left: -5vw;
-    margin-top: 4vw;
+    width: 15vw;
+    fill: white;
+}
+
+#side_logo {
+    position: fixed;
+    right: 0;
+    top: 7vh;
+    width: 12vw;
+    z-index: -1;
 }
 
 
@@ -80,7 +85,7 @@ body {
 
 .shorter {
     width: 60vw;
-    float:right;
+    float: right;
 }
 
 .hidden {
@@ -97,7 +102,7 @@ body {
 
 .big_content {
     width: 85vw;
-/*    float:right;*/
+    /*    float:right;*/
 }
 
 .show {
@@ -105,12 +110,10 @@ body {
 }
 
 .fadeIn {
-
     animation: fadeInAnim 0.7s ease-in forwards;
 }
 
 .fadeOut {
-
     animation: fadeOutAnim 0.7s ease-in forwards;
 }
 
@@ -135,7 +138,7 @@ body {
 
 /* STYLE */
 
-.main_link, .sub_link {
+.main_link {
     font-family: helvetica;
     font-size: 1em;
     color: white;
@@ -143,15 +146,12 @@ body {
     font-weight: 900;
     line-height: 1.5em;
     display: block;
-
 }
 
 .sub_links {
     position: absolute;
     left: 40%;
     top: 10%;
-
-
 }
 
 .sub_links a {
@@ -171,14 +171,15 @@ body {
     margin-left: 1vw;
     margin-top: 5vw;
 }
-#book_cont{
+
+#book_cont {
     margin-top: 35vh;
 }
-.cat{
+
+.cat {
     display: block;
     text-decoration: none;
 }
-
 
 
 /*//////////////////////////////////////////////////////////////////////////
@@ -191,7 +192,7 @@ h1 {
 
 /*NAV*/
 
-nav {
+.top_menu {
     margin: 10px;
     display: block;
     text-align: center;
@@ -221,15 +222,11 @@ a:hover {
 
 /*//////////////////////////////////////////////////////////////////////////
 //////////////////////////////EVENTS /////////////////////////////////*/
-.contenu {
-    padding: 2vw 10vw 5vw 10vw;
-/*    overflow: hidden;*/
 
-}
 .event {
     padding: 20px;
     margin: 10px;
-    border: .5px solid #ffffff;
+    border: .5px solid white;
 }
 
 h1 {
@@ -241,42 +238,55 @@ h1.pagetitle {
 }
 
 #eventlist {
-
+    height: auto;
     display: grid;
     grid-gap: 3%;
     grid-template-columns: repeat(auto-fill, minmax(25vw, 1fr));
     grid-template-rows: repeat(auto-fill, 200px), fit-content(100%);
-
 }
 
-#venueList h1{
+#venueList h1 {
     border-bottom: solid white 2px;
     width: 60vw;
 }
-.venuePost{
-    margin-bottom: 60px;
-}
-#contactList h1{
-    border-bottom: solid white 2px;
-    width: 60vw;
-}
-.contactPost{
+
+.venuePost {
+    padding: 2vw 1vw 5vw 1vw;
     margin-bottom: 60px;
 }
 
+#contactList h1 {
+    border-bottom: solid white 2px;
+    width: 60vw;
+}
+
+.contactPost {
+    padding: 2vw 1vw 5vw 1vw;
+    margin-bottom: 60px;
+}
 
 
 /*/////////////////SUBPAGES////////////////////////*/
 
-
 #singleEvent {
-  transition: all 0.3s;
-  transform: translateX(-100vw)
+    transition: all 0.3s;
+    transform: translateX(-100vw);
+    padding: 7vw;
 }
-#singleEvent.slideInEvent{
 
-  transform: translateX(0)
+#singleEvent.slideInEvent {
+    transform: translateX(0)
 }
+
+#back_but {
+    position: absolute;
+    border: solid white 2px;
+    padding: 8px;
+    left: 5vw;
+    top: 2vh;
+    z-index: 5;
+}
+
 
 /*//////////////////////////////////////////////////////////////////////////
 ///////////////////////////////ANIMATIONS//////////////////////////////////*/

@@ -4,10 +4,12 @@ let navbar = document.querySelector('.navbar');
 let content = document.querySelector('.content');
 let event = document.querySelector('#event_icon');
 let volunteer = document.querySelector('#vol_icon');
+let price_menu = document.querySelector("#price_icon");
 let icons = document.querySelector('.icons');
 let sub_linkS = document.querySelector('.sub_links');
 let sub_links_event = document.querySelector('#sub_links_event');
 let sub_links_vol = document.querySelector('#sub_links_vol');
+let sub_links_prices = document.querySelector("#sub_links_price");
 let booking_contacts = document.querySelector("#book_cont");
 var currentSub = -1;
 
@@ -129,6 +131,7 @@ function showLinks(n) {
             } else {
                 sub_links_about.classList.remove('fadeOut');
                 sub_links_vol.classList.remove('fadeOut');
+                sub_links_prices.classList.remove('fadeOut')
                 reStartFadeIn(n);
 
             }
@@ -139,6 +142,9 @@ function showLinks(n) {
 
             sub_links_vol.classList.remove('display');
             sub_links_vol.classList.add('hide');
+
+            sub_links_prices.classList.remove('display');
+            sub_links_prices.classList.add('hide');
 
 
 
@@ -162,6 +168,9 @@ function showLinks(n) {
             sub_links_vol.classList.remove('hide');
             sub_links_vol.classList.add('display');
 
+            sub_links_prices.classList.add('hide');
+            sub_links_prices.classList.remove('display');
+
 
 
 
@@ -170,7 +179,7 @@ function showLinks(n) {
         case 3: // I CLICK ON ABOUT
 
             if (currentSub == n) {
-                sub_links_about.classList.add('fadeIn');
+                sub_links_prices.classList.add('fadeIn');
             } else {
                 sub_links_vol.classList.remove('fadeOut');
                 sub_links_event.classList.remove('fadeOut');
@@ -182,6 +191,9 @@ function showLinks(n) {
 
             sub_links_vol.classList.remove('display');
             sub_links_vol.classList.add('hide');
+
+            sub_links_prices.classList.remove('hide');
+            sub_links_prices.classList.add('display');
 
 
 
@@ -234,20 +246,25 @@ function buildMenu(data) {
     let movieList = [];
     let otherList = [];
     let vennueList = [];
+    let priceList = [];
 
     data.forEach(item => {
-            console.log(item);
+
             if (item.parent === 4) {
-                console.log("music")
+
                 musicList.push(item);
             }
             else if (item.parent === 32) {
-                console.log("movie")
+
                 movieList.push(item);
             }
         else if(item.parent === 15){
-            console.log("venues")
+
             vennueList.push(item);
+        }
+        else if(item.parent === 54){
+            console.log("prices")
+            priceList.push(item);
         }
 
     });
@@ -291,5 +308,16 @@ function buildMenu(data) {
                 sub_links_vol.querySelector(".venue2").appendChild(a);
             }
 
-    })
+    });
+    priceList.forEach(item=>{
+        let a = document.createElement("a");
+        a.textContent = item.name;
+        a.href="events.html?category="+item.id;
+        a.classList.add("cat");
+        if(sub_links_prices.querySelector(".prices")){
+            sub_links_prices.querySelector(".prices").appendChild(a);
+
+        }
+
+    });
 }
